@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.utils import shuffle
 from tensorflow.keras.utils import get_file
 import os
-from challenge.data_handling import Data
+from data_handling import Data
 
 app = Flask(__name__)
 
