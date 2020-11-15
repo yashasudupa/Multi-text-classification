@@ -9,7 +9,7 @@ import os
 from sklearn.naive_bayes import MultinomialNB, BernoulliNB
 from sklearn.model_selection import KFold
 from sklearn.metrics import f1_score
-from challenge.data_handling import Data
+from data_handling import Data
 
 app = Flask(__name__)
 
