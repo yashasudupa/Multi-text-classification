@@ -41,7 +41,7 @@ class Data:
         train_dataset = train_synopsis_list[0: train_size]
         train_labels = labels_en[0: train_size]
         validation_dataset = train_synopsis_list[train_size:]
-        validation_labels = labels_en[train_size]
+        validation_labels = labels_en[train_size:]
         return train_dataset, train_labels, validation_dataset, validation_labels
 
     def get_unencoded_genres(self, predicted_genres):
@@ -55,4 +55,5 @@ class Data:
             final_prediction.append(prediction_text)
 
         return np.asarray(final_prediction)
+
 
