@@ -3,7 +3,7 @@ import re
 from flask import Flask, request, Response
 import pandas as pd
 import numpy as np
-from sklearn.feature_extraction.text import TfidVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.utils import shuffle
 import os
 from sklearn.naive_bayes import MultinomialNB, BernoulliNB
@@ -47,7 +47,7 @@ def train_model():
         train_dataset, train_labels, validation_dataset, validation_labels = data.csv_to_training_data(train_dataset, labels_en)
 
         # Term-Document matrix is created
-        vectorizer = TfidVectorizer()
+        vectorizer = TfidfVectorizer()
         X = vectorizer.fit_transform(train_dataset).toarray()
         df_new = pd.DataFrame(X, columns=vectorizer.get_feature_names())
 
@@ -98,7 +98,7 @@ def predict_model():
         test_synopsis_list = data.filter_synopsis(test_dataset)
 
         # Term-Document matrix is created
-        vectorizer = TfidVectorizer()
+        vectorizer = TfidfVectorizer()
         X = vectorizer.fit_transform(test_dataset).toarray()
         df_new = pd.DataFrame(X, columns=vectorizer.get_feature_names())
 
